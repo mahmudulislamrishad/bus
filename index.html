@@ -1,14 +1,55 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>Bangladesh Bus Simulator — Phase 1</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<meta name="mobile-web-app-capable" content="yes">
+<title>Bangladesh Bus Simulator</title>
 <link rel="stylesheet" href="style.css">
+<!-- To run fully offline: download three.module.js into /lib and change this URL to ./lib/three.module.js -->
+<script type="importmap">
+{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"}}
+</script>
 </head>
 <body>
-<div id="menu"><div class="panel"><h1>BANGLADESH BUS SIMULATOR</h1><p>Phase 1 · Playable Prototype</p><button id="play">START DRIVE</button><p class="hint">Landscape recommended · Touch controls supported</p></div></div>
-<div id="hud"><div id="speed">0 <small>KM/H</small></div><div id="gear">D</div><button id="camera">CAMERA</button><button id="pause">Ⅱ</button></div>
-<div id="controls"><button id="left" class="steer">◀</button><button id="right" class="steer">▶</button><button id="brake">BRAKE</button><button id="gas">ACCEL</button><button id="reverse">REV</button><button id="horn">HORN</button></div>
-<div id="paused" class="hidden"><div class="panel"><h2>PAUSED</h2><button id="resume">RESUME</button><button id="restart">RESTART</button></div></div>
+<canvas id="c"></canvas>
+
+<div id="hud">
+  <div><span id="spd">0</span><small>km/h</small></div>
+  <div id="gear">N</div>
+  <div id="rpmbar"><i id="rpm"></i></div>
+</div>
+<div id="camlabel"></div>
+
+<div class="top">
+  <button class="btn mini" data-act="reset" aria-label="Reset">⟲</button>
+  <button class="btn mini" data-act="camera" aria-label="Camera">📷</button>
+  <button class="btn mini" id="fs" aria-label="Fullscreen">⛶</button>
+</div>
+
+<div id="controls">
+  <div class="grp">
+    <button class="btn sq" data-key="left">◀</button>
+    <button class="btn sq" data-key="right">▶</button>
+  </div>
+  <div class="grp">
+    <button class="btn mini" data-key="handbrake">HB</button>
+    <button class="btn mini" data-key="reverse">R</button>
+    <button class="btn sq brake" data-key="brake">BRAKE</button>
+    <button class="btn tall gas" data-key="gas">GAS</button>
+  </div>
+</div>
+
+<div id="menu">
+  <h1>Bangladesh Bus Simulator</h1>
+  <button id="play">PLAY</button>
+  <p>Touch: ◀ ▶ steer · GAS · BRAKE · R reverse · HB handbrake · 📷 camera<br>
+     Keyboard: WASD/arrows · Shift brake · Space handbrake · C camera</p>
+</div>
+
+<div id="rotate">Rotate your phone to landscape</div>
+
 <script type="module" src="src/main.js"></script>
-</body></html>
+</body>
+</html>
