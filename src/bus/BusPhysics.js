@@ -3,8 +3,8 @@
 
 const WHEELBASE = 5.5;
 const GEAR_ACC = [0, 2.6, 1.9, 1.4, 1.0, 0.8];      // m/s^2 at full throttle, index = gear
-const UP_SHIFT = [0, 4.0, 8.5, 13.0, 16.5];          // m/s: gear n -> n+1
-const V_MAX = 26;                                    // ~94 km/h governor
+const UP_SHIFT = [0, 7.0, 12.5, 17.0, 19.5];          // m/s: gear n -> n+1
+const V_MAX = 60;                                    // ~94 km/h governor
 const MAX_LAT_ACC = 4.0;                             // grip limit (m/s^2)
 
 export class BusPhysics {
